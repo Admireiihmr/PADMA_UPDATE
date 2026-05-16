@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "groovy-cider-469805-i2",
+  "private_key_id": "60be47b4955d825e68e82257d00e3e515e2595ae",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC+oxxbwEUI1To4\n8uF5RrYyvzHn/GPTJMnT6L6qB9iSPbqUU4jOFBwQY3SquJhihD/v8K+bOhdNILUV\nWaZGqXoQbNNuWWRFrKZyMqfKpVPiBYTYRj/Qt9SgrBkbKNBCB4HCbwmRekkxn+41\nFxuF/Qr6YbdpMR0D1O5yjttHQpC/Vk8Q/x8Lnavi4i4qq072E4v04hCsVEb6BEKi\nhSxxhpf64JqDuMNfntus5UuNO9yUxr7IO5wtKB3G9BIVtq/QvxUpUdoQFUfL2SOH\nVlASoiry9VLzt48GJqy9M1Efwwg+UeKpL9opJzF94wvk5J9xg+JjXTmTBR2zYTT0\nY25YZqLNAgMBAAECggEACHj/FPH8OudE3iyC/JhwqW4nX8+vHT6FLvoEbi1JF9EX\n8w2tGQFVzEHPVFDQQY+Ak/ZpOeMOWKHpXLP8Bkw9Hd4M5v8OXoioRbPngFYEcRlT\nsbmaIMLD98Cy6hiHRY7abM8WQ+vy/kN70hNfQ+0VkkATjAUpNa31cDCM6qNvupyd\n4nYObKrs8zBeOlejF2IgISqNb0kypAph6xd9nwynIOOpQaThY8vvjZaN/XUNiK+m\nnVWf4Eyv6AY8xv+R5bwWRv+AGmn/V67FD4DpGvNNddLWzKFbzj9un0EwbH0MYUF8\ne8zhpGYPqg5V+qT86vdPzNfepfe3sxHYMdHG+HMuVQKBgQDlTT82fdRhqza/8bE5\nxPKV3TjotkkSdNllIhpxbazm9VBDH7gnURD/FXNIMy6k9i3yfw9Zl09sI0dtj+oq\n3UFBvvrtyWO1denee5i2ZTlZjVSwKA9smOYrYys8BNls+FuHYrApFEGwebXnTpEr\nIFWnAp8t9lp9M3simMotSpEtjwKBgQDU1WVNpvexKjT+KZhpLQEDD+EG2mcyAClz\nNn1591u9xLgXvl3vDcwbkCQXXVmbgt64SSbhWPBkyR2cqshpA0m+TTeTJm3RHh1C\nT05NcDOoh4OtgIWHst2QhYD1zoglwxR5xfiDzlJE7TMA3iKtCSC62xPLvg7QUXUP\nFc2xaIxz4wKBgAo6HsakaBOPGlsHQZtNAHDUtBQVBT9QfN243qsOdDa83D6SLJl8\nUSC/aSvgNIVhAX2eUyXwzLcK/8WQNKaCxcVT6kcuw0a1op+srYv9CcjHt+4/ayix\nzRpESwpbQQNONG7eZPMAF0nys71EUM82mvte75CSO0j4QdayL9pDSCRbAoGAQAqW\nGO+MyHpyx6esfLlV/J3ikDVXp+v0jP5wcyrDKC7xVfOqQCxepkyRD5a/R9PxQHKC\niHxCmZEKoAGjnDWpEuIZPuXpVWtCUpmabiK86JEeRi7N/y8LDFmfnFcxEGvK1XmE\ndeS3TJYzKqest3RvrMoPAteFjZl1J7zfz+otmRECgYBiVD+F2cKgjQ8sGnQ5pt8Q\ne3Eg/mjheyPnlV8H6xIYFQrZVPC4oMq5gS4/6eVcQPbnD+6WJlkTfZR7AClgxWtA\nmrR6K0s6vQwQfzgHL9wzvQ3gWhw0HFfzaULsQjs1S79m201nNpi/BAt7V0wFvY+Y\nRETMzJy+8GC9at+dXVk3Dw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "padma-dfu@groovy-cider-469805-i2.iam.gserviceaccount.com",
+  "client_id": "104924813492188249684",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/padma-dfu%40groovy-cider-469805-i2.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
