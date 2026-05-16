@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PADMA &middot; Sign in or Create Account</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="auth-page">
+
+    <!-- ===== Left hero ===== -->
+    <aside class="auth-hero">
+      <div class="auth-hero-brand">
+        <div class="emblem">
+          <div class="emblem-ring">
+            <img src="logo.png" alt="PADMA Logo" class="emblem-logo" />
+          </div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-tag">Official Clinical Platform</span>
+          <h2>PADMA</h2>
+          <p>Diabetic Foot Ulcer Assessment</p>
+        </div>
+      </div>
+
+      <div class="auth-hero-content">
+        <h1 id="heroTitle">AI-powered diabetic foot ulcer assessment.</h1>
+        <p id="heroDesc">
+          Sign in to upload images, generate severity reports, and review
+          AI-assisted predictions with Grad-CAM explanations &mdash; all in one secure workspace.
+        </p>
+        <ul class="auth-hero-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Four-grade severity classification
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Visual Grad-CAM heatmaps for interpretability
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Encrypted, audit-ready patient records
+          </li>
+        </ul>
+      </div>
+
+      <div class="auth-hero-foot">
+        <div class="trust-row">
+          <span class="trust-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Secure
+          </span>
+          <span class="trust-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Audit-Ready
+          </span>
+          <span class="trust-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Clinically Validated
+          </span>
+        </div>
+        <p class="copyright">&copy; PADMA Clinical Decision Support &middot; For research use</p>
+      </div>
+    </aside>
+
+    <!-- ===== Right card ===== -->
+    <main class="auth-main">
+      <div class="auth-card">
+
+        <!-- Tab switcher -->
+        <div class="auth-tabs" role="tablist">
+          <button class="auth-tab active" id="tabLogin"  type="button" role="tab" aria-selected="true">Sign In</button>
+          <button class="auth-tab"        id="tabSignup" type="button" role="tab" aria-selected="false">Create Account</button>
+        </div>
+
+        <div class="auth-card-header">
+          <h2 id="cardTitle">Welcome back</h2>
+          <p   id="cardSub">Sign in to your PADMA workspace</p>
+        </div>
+
+        <!-- Shared alert -->
+        <div id="alert" class="auth-alert error">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <span id="alertText">Something went wrong.</span>
+        </div>
+
+        <!-- ===== LOGIN FORM ===== -->
+        <form id="loginForm" class="auth-form" novalidate>
+          <div class="field">ddd
+            <label for="loginEmail">Email address</label>
+            <input id="loginEmail" type="email" autocomplete="email" placeholder="name@example.com" required />
+          </div>
+
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <div class="password-field">
+              <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter your password" required />
+              <button type="button" class="password-toggle" data-toggle="loginPassword" aria-label="Show password">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="auth-actions">
+            <label class="checkbox-field">
+              <input id="remember" type="checkbox" /> Remember me
+            </label>
+            <button type="button" id="forgotBtn" class="auth-link">Forgot password?</button>
+          </div>
+
+          <button type="submit" id="loginBtn" class="auth-btn">
+            <span class="btn-text">Sign in</span>
+          </button>
+        </form>
+
+        <!-- ===== SIGNUP FORM ===== -->
+        <form id="signupForm" class="auth-form" style="display:none;" novalidate>
+          <div class="field">
+            <label for="signupName">Full Name</label>
+            <input id="signupName" type="text" autocomplete="name" placeholder="e.g. Dr. Priya Sharma" required />
+          </div>
+
+          <div class="field">
+            <label for="signupEmail">Email address</label>
+            <input id="signupEmail" type="email" autocomplete="email" placeholder="name@hospital.com" required />
+          </div>
+
+          <div class="field">
+            <label for="signupPassword">Password</label>
+            <div class="password-field">
+              <input id="signupPassword" type="password" autocomplete="new-password" placeholder="At least 6 characters" required minlength="6" />
+              <button type="button" class="password-toggle" data-toggle="signupPassword" aria-label="Show password">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="signupConfirm">Confirm password</label>
+            <div class="password-field">
+              <input id="signupConfirm" type="password" autocomplete="new-password" placeholder="Re-enter password" required minlength="6" />
+              <button type="button" class="password-toggle" data-toggle="signupConfirm" aria-label="Show password">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="auth-actions" style="justify-content:flex-start;">
+            <label class="checkbox-field">
+              <input id="agree" type="checkbox" /> I agree to the terms &amp; privacy policy
+            </label>
+          </div>
+
+          <button type="submit" id="signupBtn" class="auth-btn">
+            <span class="btn-text">Create account</span>
+          </button>
+        </form>
+
+        <p class="auth-footer" id="footerSwitch">
+          Don&rsquo;t have an account?
+          <button class="auth-link" type="button" id="switchToSignup">Create one</button>
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
+      sendPasswordResetEmail,
+      signOut,
+      updateProfile,
+      setPersistence,
+      browserLocalPersistence,
+      browserSessionPersistence,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJu3VH_-mP7tnzSm3ytYFN7sxAzfKwUTQ",
+      authDomain: "dfu-padma.firebaseapp.com",
+      databaseURL: "https://dfu-padma-default-rtdb.firebaseio.com",
+      projectId: "dfu-padma",
+      storageBucket: "dfu-padma.firebasestorage.app",
+      messagingSenderId: "307317692331",
+      appId: "1:307317692331:web:45cb5e9cf5fbb64c73a4ee"
+    };
+
+    const app  = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Already signed in? Go straight to the app.
+    // signupInProgress suppresses redirect during account-creation so user
+    // can be forced to sign in manually after creating an account.
+    let signupInProgress = false;
+    onAuthStateChanged(auth, (user) => {
+      if (user && !signupInProgress) {
+        const last = parseInt(sessionStorage.getItem("authBounce") || "0", 10);
+        if (Date.now() - last < 2000) return;           // throttle ping-pong
+        sessionStorage.setItem("authBounce", String(Date.now()));
+        window.location.replace("COPY.HTML");
+      } else if (!user) {
+        sessionStorage.removeItem("authBounce");
+      }
+    });
+
+    // ---------- Helpers ----------
+    const $ = (id) => document.getElementById(id);
+    const alertBox  = $("alert");
+    const alertText = $("alertText");
+
+    function showError(msg) {
+      alertBox.classList.remove("success");
+      alertBox.classList.add("error", "show");
+      alertText.textContent = msg;
+    }
+    function showSuccess(msg) {
+      alertBox.classList.remove("error");
+      alertBox.classList.add("success", "show");
+      alertText.textContent = msg;
+    }
+    function hideAlert() { alertBox.classList.remove("show"); }
+
+    function setLoading(form, isLoading) {
+      const btn = form.querySelector(".auth-btn");
+      const txt = btn.querySelector(".btn-text");
+      btn.disabled = isLoading;
+      if (form.id === "loginForm")
+        txt.textContent = isLoading ? "Signing in…" : "Sign in";
+      else
+        txt.textContent = isLoading ? "Creating account…" : "Create account";
+      const existing = btn.querySelector(".mini-spinner");
+      if (isLoading && !existing) {
+        const s = document.createElement("span");
+        s.className = "mini-spinner";
+        btn.prepend(s);
+      } else if (!isLoading && existing) existing.remove();
+    }
+
+    function friendlyError(code) {
+      const map = {
+        "auth/invalid-credential":     "Email or password is incorrect.",
+        "auth/invalid-email":          "Please enter a valid email address.",
+        "auth/user-not-found":         "No account exists with this email.",
+        "auth/wrong-password":         "Email or password is incorrect.",
+        "auth/too-many-requests":      "Too many attempts. Try again in a few minutes.",
+        "auth/network-request-failed": "Network error. Check your connection.",
+        "auth/user-disabled":          "This account has been disabled.",
+        "auth/email-already-in-use":   "An account with this email already exists.",
+        "auth/weak-password":          "Password must be at least 6 characters.",
+        "auth/operation-not-allowed":  "Email/password auth is disabled in Firebase Console."
+      };
+      return map[code] || "Something went wrong. Please try again.";
+    }
+
+    // ---------- Tab switching ----------
+    const tabLogin   = $("tabLogin");
+    const tabSignup  = $("tabSignup");
+    const loginForm  = $("loginForm");
+    const signupForm = $("signupForm");
+    const cardTitle  = $("cardTitle");
+    const cardSub    = $("cardSub");
+    const heroTitle  = $("heroTitle");
+    const heroDesc   = $("heroDesc");
+    const footerSw   = $("footerSwitch");
+
+    function showLogin() {
+      tabLogin.classList.add("active");  tabLogin.setAttribute("aria-selected","true");
+      tabSignup.classList.remove("active"); tabSignup.setAttribute("aria-selected","false");
+      loginForm.style.display  = "flex";
+      signupForm.style.display = "none";
+      cardTitle.textContent = "Welcome back";
+      cardSub.textContent   = "Sign in to your PADMA workspace";
+      heroTitle.textContent = "AI-powered diabetic foot ulcer assessment.";
+      heroDesc.textContent  = "Sign in to upload images, generate severity reports, and review AI-assisted predictions with Grad-CAM explanations — all in one secure workspace.";
+      footerSw.innerHTML = `Don&rsquo;t have an account? <button class="auth-link" type="button" id="switchToSignup">Create one</button>`;
+      $("switchToSignup").addEventListener("click", showSignup);
+      hideAlert();
+    }
+    function showSignup() {
+      tabSignup.classList.add("active"); tabSignup.setAttribute("aria-selected","true");
+      tabLogin.classList.remove("active"); tabLogin.setAttribute("aria-selected","false");
+      loginForm.style.display  = "none";
+      signupForm.style.display = "flex";
+      cardTitle.textContent = "Create your account";
+      cardSub.textContent   = "It takes less than a minute to get started";
+      heroTitle.textContent = "Create your clinician workspace.";
+      heroDesc.textContent  = "Join PADMA to access AI-driven diabetic foot ulcer assessment, secure patient management, and explainable predictions backed by Grad-CAM.";
+      footerSw.innerHTML = `Already have an account? <button class="auth-link" type="button" id="switchToLogin">Sign in</button>`;
+      $("switchToLogin").addEventListener("click", showLogin);
+      hideAlert();
+    }
+    tabLogin.addEventListener("click", showLogin);
+    tabSignup.addEventListener("click", showSignup);
+    $("switchToSignup").addEventListener("click", showSignup);
+
+    // ---------- Password show/hide (all toggles) ----------
+    document.querySelectorAll(".password-toggle").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const input = $(btn.dataset.toggle);
+        if (input) input.type = input.type === "password" ? "text" : "password";
+      });
+    });
+
+    // ---------- Login submit ----------
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      hideAlert();
+      const email    = $("loginEmail").value.trim();
+      const password = $("loginPassword").value;
+      const remember = $("remember").checked;
+      if (!email || !password) return showError("Please enter both your email and password.");
+
+      setLoading(loginForm, true);
+      try {
+        await setPersistence(auth, remember ? browserLocalPersistence : browserSessionPersistence);
+        await signInWithEmailAndPassword(auth, email, password);
+        window.location.replace("COPY.HTML");
+      } catch (err) {
+        showError(friendlyError(err.code));
+        setLoading(loginForm, false);
+      }
+    });
+
+    // ---------- Signup submit ----------
+    signupForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      hideAlert();
+      const fullName = $("signupName").value.trim();
+      const email    = $("signupEmail").value.trim();
+      const password = $("signupPassword").value;
+      const confirm  = $("signupConfirm").value;
+      const agree    = $("agree").checked;
+
+      if (!fullName)            return showError("Please enter your full name.");
+      if (!email || !password)  return showError("Please fill in all required fields.");
+      if (password.length < 6)  return showError("Password must be at least 6 characters.");
+      if (password !== confirm) return showError("Passwords don't match.");
+      if (!agree)               return showError("Please agree to the terms to continue.");
+
+      setLoading(signupForm, true);
+      signupInProgress = true;
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        await updateProfile(cred.user, { displayName: fullName });
+        // Force the new user to sign in manually
+        await signOut(auth);
+        setLoading(signupForm, false);
+        // Switch to the Sign In tab, prefill their email
+        showLogin();
+        $("loginEmail").value = email;
+        $("loginPassword").focus();
+        showSuccess("Account created successfully. Please sign in to continue.");
+      } catch (err) {
+        showError(friendlyError(err.code));
+        setLoading(signupForm, false);
+      } finally {
+        signupInProgress = false;
+      }
+    });
+
+    // ---------- Forgot password ----------
+    $("forgotBtn").addEventListener("click", async () => {
+      hideAlert();
+      const email = $("loginEmail").value.trim();
+      if (!email) return showError("Enter your email above first, then click Forgot password.");
+      try {
+        await sendPasswordResetEmail(auth, email);
+        showSuccess("Password reset email sent. Check your inbox.");
+      } catch (err) {
+        showError(friendlyError(err.code));
+      }
+    });
+  </script>
+</body>
+</html>
