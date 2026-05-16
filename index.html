@@ -93,7 +93,7 @@
 
         <!-- ===== LOGIN FORM ===== -->
         <form id="loginForm" class="auth-form" novalidate>
-          <div class="field">ddd
+          <div class="field">
             <label for="loginEmail">Email address</label>
             <input id="loginEmail" type="email" autocomplete="email" placeholder="name@example.com" required />
           </div>
@@ -193,26 +193,24 @@
     } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
     const firebaseConfig = {
-      apiKey: "AIzaSyAJu3VH_-mP7tnzSm3ytYFN7sxAzfKwUTQ",
-      authDomain: "dfu-padma.firebaseapp.com",
-      databaseURL: "https://dfu-padma-default-rtdb.firebaseio.com",
-      projectId: "dfu-padma",
-      storageBucket: "dfu-padma.firebasestorage.app",
+      apiKey:            "AIzaSyAJu3VH_-mP7tnzSm3ytYFN7sxAzfKwUTQ",
+      authDomain:        "dfu-padma.firebaseapp.com",
+      databaseURL:       "https://dfu-padma-default-rtdb.firebaseio.com",
+      projectId:         "dfu-padma",
+      storageBucket:     "dfu-padma.firebasestorage.app",
       messagingSenderId: "307317692331",
-      appId: "1:307317692331:web:45cb5e9cf5fbb64c73a4ee"
+      appId:             "1:307317692331:web:45cb5e9cf5fbb64c73a4ee"
     };
 
     const app  = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
     // Already signed in? Go straight to the app.
-    // signupInProgress suppresses redirect during account-creation so user
-    // can be forced to sign in manually after creating an account.
     let signupInProgress = false;
     onAuthStateChanged(auth, (user) => {
       if (user && !signupInProgress) {
         const last = parseInt(sessionStorage.getItem("authBounce") || "0", 10);
-        if (Date.now() - last < 2000) return;           // throttle ping-pong
+        if (Date.now() - last < 2000) return;
         sessionStorage.setItem("authBounce", String(Date.now()));
         window.location.replace("COPY.HTML");
       } else if (!user) {
@@ -221,7 +219,7 @@
     });
 
     // ---------- Helpers ----------
-    const $ = (id) => document.getElementById(id);
+    const $         = (id) => document.getElementById(id);
     const alertBox  = $("alert");
     const alertText = $("alertText");
 
@@ -241,30 +239,31 @@
       const btn = form.querySelector(".auth-btn");
       const txt = btn.querySelector(".btn-text");
       btn.disabled = isLoading;
-      if (form.id === "loginForm")
-        txt.textContent = isLoading ? "Signing in…" : "Sign in";
-      else
-        txt.textContent = isLoading ? "Creating account…" : "Create account";
+      txt.textContent = form.id === "loginForm"
+        ? (isLoading ? "Signing in…"        : "Sign in")
+        : (isLoading ? "Creating account…"  : "Create account");
       const existing = btn.querySelector(".mini-spinner");
       if (isLoading && !existing) {
         const s = document.createElement("span");
         s.className = "mini-spinner";
         btn.prepend(s);
-      } else if (!isLoading && existing) existing.remove();
+      } else if (!isLoading && existing) {
+        existing.remove();
+      }
     }
 
     function friendlyError(code) {
       const map = {
-        "auth/invalid-credential":     "Email or password is incorrect.",
-        "auth/invalid-email":          "Please enter a valid email address.",
-        "auth/user-not-found":         "No account exists with this email.",
-        "auth/wrong-password":         "Email or password is incorrect.",
-        "auth/too-many-requests":      "Too many attempts. Try again in a few minutes.",
-        "auth/network-request-failed": "Network error. Check your connection.",
-        "auth/user-disabled":          "This account has been disabled.",
-        "auth/email-already-in-use":   "An account with this email already exists.",
-        "auth/weak-password":          "Password must be at least 6 characters.",
-        "auth/operation-not-allowed":  "Email/password auth is disabled in Firebase Console."
+        "auth/invalid-credential":    "Email or password is incorrect.",
+        "auth/invalid-email":         "Please enter a valid email address.",
+        "auth/user-not-found":        "No account exists with this email.",
+        "auth/wrong-password":        "Email or password is incorrect.",
+        "auth/too-many-requests":     "Too many attempts. Try again in a few minutes.",
+        "auth/network-request-failed":"Network error. Check your connection.",
+        "auth/user-disabled":         "This account has been disabled.",
+        "auth/email-already-in-use":  "An account with this email already exists.",
+        "auth/weak-password":         "Password must be at least 6 characters.",
+        "auth/operation-not-allowed": "Email/password auth is disabled in Firebase Console."
       };
       return map[code] || "Something went wrong. Please try again.";
     }
@@ -281,8 +280,10 @@
     const footerSw   = $("footerSwitch");
 
     function showLogin() {
-      tabLogin.classList.add("active");  tabLogin.setAttribute("aria-selected","true");
-      tabSignup.classList.remove("active"); tabSignup.setAttribute("aria-selected","false");
+      tabLogin.classList.add("active");
+      tabLogin.setAttribute("aria-selected", "true");
+      tabSignup.classList.remove("active");
+      tabSignup.setAttribute("aria-selected", "false");
       loginForm.style.display  = "flex";
       signupForm.style.display = "none";
       cardTitle.textContent = "Welcome back";
@@ -293,9 +294,12 @@
       $("switchToSignup").addEventListener("click", showSignup);
       hideAlert();
     }
+
     function showSignup() {
-      tabSignup.classList.add("active"); tabSignup.setAttribute("aria-selected","true");
-      tabLogin.classList.remove("active"); tabLogin.setAttribute("aria-selected","false");
+      tabSignup.classList.add("active");
+      tabSignup.setAttribute("aria-selected", "true");
+      tabLogin.classList.remove("active");
+      tabLogin.setAttribute("aria-selected", "false");
       loginForm.style.display  = "none";
       signupForm.style.display = "flex";
       cardTitle.textContent = "Create your account";
@@ -306,11 +310,12 @@
       $("switchToLogin").addEventListener("click", showLogin);
       hideAlert();
     }
+
     tabLogin.addEventListener("click", showLogin);
     tabSignup.addEventListener("click", showSignup);
     $("switchToSignup").addEventListener("click", showSignup);
 
-    // ---------- Password show/hide (all toggles) ----------
+    // ---------- Password show/hide ----------
     document.querySelectorAll(".password-toggle").forEach(btn => {
       btn.addEventListener("click", () => {
         const input = $(btn.dataset.toggle);
@@ -318,7 +323,7 @@
       });
     });
 
-    // ---------- Login submit ----------
+    // ---------- Login ----------
     loginForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       hideAlert();
@@ -338,7 +343,7 @@
       }
     });
 
-    // ---------- Signup submit ----------
+    // ---------- Signup ----------
     signupForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       hideAlert();
@@ -351,7 +356,7 @@
       if (!fullName)            return showError("Please enter your full name.");
       if (!email || !password)  return showError("Please fill in all required fields.");
       if (password.length < 6)  return showError("Password must be at least 6 characters.");
-      if (password !== confirm) return showError("Passwords don't match.");
+      if (password !== confirm)  return showError("Passwords don't match.");
       if (!agree)               return showError("Please agree to the terms to continue.");
 
       setLoading(signupForm, true);
@@ -359,10 +364,8 @@
       try {
         const cred = await createUserWithEmailAndPassword(auth, email, password);
         await updateProfile(cred.user, { displayName: fullName });
-        // Force the new user to sign in manually
         await signOut(auth);
         setLoading(signupForm, false);
-        // Switch to the Sign In tab, prefill their email
         showLogin();
         $("loginEmail").value = email;
         $("loginPassword").focus();
