@@ -1,0 +1,40 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.Python
+
+# ===== Virtual environments =====
+.venv/
+venv/
+env/
+
+# ===== IDE / editor =====
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ===== Secrets (NEVER commit these) =====
+*.json.json
+service_account*.json
+groovy-cider-*.json
+.env
+.env.local
+*.pem
+*.key
+
+# ===== Debug / scratch files =====
+debug_*.png
+*.log
+
+# ===== Windows-only helpers (not needed on Render's Linux) =====
+fix_venv.ps1
+refresh_credentials.bat
+refresh_credentials.ps1
+setup_gcloud_auth.py
+
+# ===== Auth-related docs (local-only) =====
+README_AUTH_FIX.md
